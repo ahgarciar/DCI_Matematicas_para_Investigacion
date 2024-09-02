@@ -26,6 +26,7 @@ print(contend_file.head(10)) # imprime en pantalla las primeras 10 filas de la i
 
 scalers = dict()
 
+#recorre cada columna para normalizarla
 new_instance = pd.DataFrame([])
 for index in range(len(contend_file.columns)-1): # no se normaliza la ultima instancia porque es nominal
     column = contend_file.columns[index]
@@ -47,3 +48,4 @@ for name, scaler in scalers.items():
     print("Min Value:", min_value)
     print("Max Value:", max_value)
     print()
+
