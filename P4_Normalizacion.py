@@ -30,7 +30,7 @@ scalers = dict()
 new_instance = pd.DataFrame([])
 for index in range(len(contend_file.columns)-1): # no se normaliza la ultima instancia porque es nominal
     column = contend_file.columns[index]
-    scaler = MinMaxScaler()
+    scaler = MinMaxScaler(feature_range=(0, 10))
     new_instance[column] = pd.DataFrame(scaler.fit_transform(contend_file[[column]]), columns=[column])
     scalers.update({column: scaler})
 
