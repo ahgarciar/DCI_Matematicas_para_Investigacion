@@ -1,7 +1,5 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from SuavizamientoExponencial import MetricasDeError as metricas
-
 
 def calc_suavizado_exponencial(serie, alfa):
     # El parámetro alfa controla el peso que se le da a los datos
@@ -18,15 +16,9 @@ def calc_suavizado_exponencial(serie, alfa):
 # Serie de tiempo a suavizar
 datos = np.array([100, 132, 105, 133, 141, 137, 156, 136, 157, 124, 132, 142])  # Corresponde a los valores reales
 
-# Auxiliares para almacenar los resultados del analisis de sensibilidad
-mae_list = []
-mse_list = []
-rmse_list = []
-mape_list = []
-
-alfa = 0.8
+alfa = 0.95
 serie_suavizada = calc_suavizado_exponencial(datos, alfa)
-    
+
 x = [i for i in range(1, len(serie_suavizada)+1)]
 plt.figure(figsize=(12, 6))
 plt.plot(x, datos, label='REAL', color='blue')

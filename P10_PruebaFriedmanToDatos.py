@@ -1,23 +1,28 @@
-#Datos obtenidos desde arduino sin procesamiento adicional..
-archivoDatosMediana = open("../Archivos/datos_MedianaLectura.csv")
-archivoDatosPromedio = open("../Archivos/datos_PromedioLectura.csv")
-archivoDatosValMenor = open("../Archivos/datos_ValorMenorLectura.csv")
+import numpy as np
+import pandas as pd
+from scipy import stats
 
-contMediana = archivoDatosMediana.readlines()
-contPromedio = archivoDatosPromedio.readlines()
-contValMenor = archivoDatosValMenor.readlines()
+datos = np.array([
+    [100, 100, 90],
+    [20, 80, 95],
+    [80, 100, 75],
+    [70, 100, 15],
+    [96, 91, 85],
+    [90, 95, 90]
+])
 
-datosMediana = [float(i) for i in contMediana]
-datosPromedio = [float(i) for i in contPromedio]
-datosValMenor = [float(i) for i in contValMenor]
+df = pd.DataFrame(datos, columns=["Pedro", "Javier", "Maria"])
 
-print(datosMediana)
-print(datosPromedio)
-print(datosValMenor)
+ranking = df.apply(stats.rankdata, axis=1)
+print("Columnas Rankeadas:")
+print(ranking)
+ranking_promedio = ranking.mean()
+print("Ranking Promedio:")
+print(ranking_promedio)
+
 
 #Friedman Test
-from scipy import stats
-res = stats.friedmanchisquare(datosPromedio, datosMediana, datosValMenor)
+res = stats.friedmanchisquare(*[df[columna] for columna in df])
 #Ho = hipotesis nula...
 # NO EXISTE DIFERENCIA ESTADISTICA ENTRE LAS MUESTRAS (GRUPOS)
 #Ha = hipostesis alternativa
