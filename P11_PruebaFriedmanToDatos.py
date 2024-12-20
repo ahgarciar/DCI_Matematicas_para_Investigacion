@@ -24,9 +24,9 @@ print(ranking_promedio)
 #Friedman Test
 res = stats.friedmanchisquare(*[df[columna] for columna in df])
 #Ho = hipotesis nula...
-# EXISTE DIFERENCIA ESTADISTICA ENTRE LAS MUESTRAS (GRUPOS)
-#Ha = hipostesis alternativa
 # NO EXISTE DIFERENCIA ESTADISTICA ENTRE LAS MUESTRAS (GRUPOS)
+#Ha = hipostesis alternativa
+# EXISTE DIFERENCIA ESTADISTICA ENTRE LAS MUESTRAS (GRUPOS)
 #EVALUACION DE LA PRUEBA....Si pvalue < 0.05 se rechaza Ho y se acepta Ha
 # SI pvalue >= 0.05 se acepta Ho y se rechaza Ha
 print(res)
