@@ -11,9 +11,9 @@ print(resultado_maria)
 from scipy import stats
 res = stats.friedmanchisquare(resultados_pedro, resultados_javier, resultado_maria)
 #Ho = hipotesis nula...
-# NO EXISTE DIFERENCIA ESTADISTICA ENTRE LAS MUESTRAS (GRUPOS)
-#Ha = hipostesis alternativa
 # EXISTE DIFERENCIA ESTADISTICA ENTRE LAS MUESTRAS (GRUPOS)
+#Ha = hipostesis alternativa
+# NO EXISTE DIFERENCIA ESTADISTICA ENTRE LAS MUESTRAS (GRUPOS)
 
 #EVALUACION DE LA PRUEBA....Si pvalue < 0.05 se rechaza Ho y se acepta Ha
 
